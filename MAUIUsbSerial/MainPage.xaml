@@ -1,0 +1,19 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUIUsbSerial.MainPage">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label Text="USB Serial Communication" FontSize="24" HorizontalOptions="Center" />
+            <Entry x:Name="DeviceIdEntry" Placeholder="Device ID or Port Name" />
+            <Entry x:Name="BaudRateEntry" Placeholder="Baud Rate" Keyboard="Numeric" />
+            <Button Text="Connect" Clicked="OnConnectClicked" />
+            <Label x:Name="ConnectionStatusLabel" Text="Status: Disconnected" />
+            <Entry x:Name="WriteDataEntry" Placeholder="Data to Write (comma-separated bytes)" />
+            <Button Text="Write" Clicked="OnWriteClicked" />
+            <Entry x:Name="ReadCountEntry" Placeholder="Bytes to Read" Keyboard="Numeric" />
+            <Button Text="Read" Clicked="OnReadClicked" />
+            <Label x:Name="ReadResultLabel" Text="Read Result: " />
+            <Button Text="Disconnect" Clicked="OnDisconnectClicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
