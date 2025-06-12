@@ -1,70 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Globalization;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Forms;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Collections.ObjectModel;
-using System.Data;
-using System.IO;
-using C1.WPF.C1Chart;
-using Binding = System.Windows.Data.Binding;
-using CheckBox = System.Windows.Controls.CheckBox;
-using ComboBox = System.Windows.Controls.ComboBox;
-using KeyEventArgs = System.Windows.Input.KeyEventArgs;
-using SaveFileDialog = Microsoft.Win32.SaveFileDialog;
-using TextBox = System.Windows.Controls.TextBox;
-using UserControl = System.Windows.Controls.UserControl;
-using System.Collections;
-using PXR.Resources.Strings;
-using System.IO.Ports;
-using System.Windows.Threading;
-using PXR.Communication;
-using System.Threading;
-using PXR.Screens.Scrs_Download_Language;
-using PXR.Screens.Scrs_Test;
-using System.Diagnostics;
-using System.Windows.Shapes;
-using C1.WPF.C1Chart.Extended;
-using System.Windows.Media.Animation;
-using C1.C1Preview;
-using RadioButton = System.Windows.Controls.RadioButton;
-using Convert = System.Convert;
-using static CSJ2K.Color.ColorSpace;
 using System.ComponentModel;
-using C1.Util.DX;
-using static C1.Util.Win.Win32;
-using C1.C1Excel;
+using System.Windows.Input;
+using Microsoft.Maui.Controls;
 
-namespace PXR.Screens
+namespace MAUIUsbSerial.SetPointConnect
 {
-    public class MainScreen_ViewModel :INotifyPropertyChanged
+    public class MainScreen_ViewModel : INotifyPropertyChanged
     {
-        public MainScreen mainscreen;
         public event PropertyChangedEventHandler PropertyChanged;
-        public string SourceScreen;
-        public static ObservableCollection<ChangeSummary> Changes = new ObservableCollection<ChangeSummary>();
-        public string chng;
-        public string BeforeRefreshAuxStatus = string.Empty;
-        ArrayList OriginalsetpointLines = null;
-        List<string> MCCBBackUpTripSetPoints = new List<string>();
+        public ObservableCollection<ChangeSummaryItem> Changes { get; set; } = new();
 
-        int count = 0;
-        // private Queue<byte[]> commandQueue1;
-        //private static SerialPort serialPort;
-        public static List<byte[]> byteList;
-        private delegate void UIDelegate();
-        private string port_name;
-        Stopwatch stopwatchConnErr = new Stopwatch();
-        TimeSpan timeoutConnErr = new TimeSpan(0, 0, 8);
-        private int bytListCheck = 0;
-        double origsidebarWid;
-        double origScrollWid;
+        public ICommand SaveCommand { get; set; }
+        public ICommand SaveToFileCommand { get; set; }
+        public ICommand ExportCommand { get; set; }
+        public ICommand RefreshCommand { get; set; }
+        public ICommand CancelCommand { get; set; }
 
 
 
@@ -5657,27 +5608,12 @@ namespace PXR.Screens
             }
         }
     }
-    public class CurveData
+
+    public class ChangeSummaryItem
     {
-        public bool GF_Enabled { get; set; }
-        public bool isGFActionoff { get; set; }
-        public bool IN_Enabled { get; set; }
-        public double GFXMax { get; set; }
-        public double GFXMin { get; set; }
-        public double GFYMax { get; set; }
-        public double GFYMin { get; set; }
-        public decimal GFPU_ToSetAxis { get; set; }
-        public decimal In_ToSetAxis { get; set; }
-        public bool IsMMStateOn { get; set; }
-        public bool MM_Enabled { get; set; }
-        public double MMXMax { get; set; }
-        public double MMXmin { get; set; }
-        public double InstXMax { get; set; }
-        public double InstXmin { get; set; }
-        public double LSIAxMax { get; set; }
-        public double LSIAXMin { get; set; }
-        public double LSIrXMax { get; set; }
-        public double LSIrXmin { get; set; }
+        public string ItemName { get; set; }
+        public string OrigValue { get; set; }
+        public string NewValue { get; set; }
     }
 }
 
