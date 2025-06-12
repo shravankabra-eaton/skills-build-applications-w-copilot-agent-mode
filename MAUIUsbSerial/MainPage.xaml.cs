@@ -62,9 +62,4 @@ public partial class MainPage : ContentPage
     {
         ConnectionStatusLabel.Text = $"Status: {(_usbSerialService.IsConnected ? "Connected" : "Disconnected" )}";
     }
-
-    private async void OnOpenSetPointClicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new MAUIUsbSerial.SetPointConnect.MainScreen_MAUI());
-    }
 }
