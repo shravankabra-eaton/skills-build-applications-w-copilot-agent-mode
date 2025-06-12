@@ -14,8 +14,6 @@
             <Button Text="Read" Clicked="OnReadClicked" />
             <Label x:Name="ReadResultLabel" Text="Read Result: " />
             <Button Text="Disconnect" Clicked="OnDisconnectClicked" />
-            <Button Text="Open SetPoint Control (MAUI)" Clicked="OnOpenSetPointClicked" />
-            <Button Text="Open Main Screen (MAUI)" Clicked="OnOpenMainScreenClicked" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
