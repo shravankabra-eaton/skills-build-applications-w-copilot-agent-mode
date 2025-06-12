@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUISerialCOmm.MainPage"
+             Title="USB Serial Connector">
+    <VerticalStackLayout Spacing="25" Padding="30">
+        <Label Text="USB Serial Connector" FontSize="32" HorizontalOptions="Center" />
+        <Picker x:Name="DevicePicker" Title="Select Serial Device" />
+        <HorizontalStackLayout>
+            <Button Text="Connect to USB Serial" Clicked="OnConnectClicked" />
+            <Button Text="Disconnect" Clicked="OnDisconnectClicked" />
+        </HorizontalStackLayout>
+        <Label x:Name="StatusLabel" Text="Status: Not Connected" />
+        <Entry x:Name="SendEntry" Placeholder="Type message to send..." />
+        <Button Text="Send" Clicked="OnSendClicked" />
+        <Label x:Name="ReceivedLabel" Text="Received: " />
+    </VerticalStackLayout>
+</ContentPage>
